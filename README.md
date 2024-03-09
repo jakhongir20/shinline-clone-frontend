@@ -1,4 +1,4 @@
-# React-team-collaboration
+# React App with team
 
 Building a complex e-Commerce app in React with a team.
 
@@ -20,12 +20,11 @@ We will do it together if you want. The main idea is that we take (steal :)) int
 3. git commit -m "feature(Product): styled Product"
 
 - we basically commit in 3 different ways :
-  1. "feature(): " - for newly added things or features
-  2. "change(): " - for changed things or features
-  3. "fix(): " - for fixed things or features
-  4. "other(): " - ...maybe other way
+  1. "feat/ui/button" - for newly added features
+  2. "bugfix/test: " - for bug fixes
+  3. "add, change, fix, create" - initial commits for add, change, fix or create
 
-4. git push origin develop
+4. git push origin feat/ui/button, bugfix/test
 
 - I created two branch in Github, one of them "main" and another one "develop".
   You always push to develop branch and after I check the result I merge to main branch. We will deploy our project to vercel or similar, and we can see our results there!
