@@ -1,4 +1,4 @@
-# React App with team
+# Shinline App with team
 
 Building a complex e-Commerce app in React with a team.
 
@@ -21,10 +21,11 @@ We will do it together if you want. The main idea is that we take (steal :)) int
 
 - we basically commit in 3 different ways :
   1. "feat/ui/button" - for newly added features
-  2. "bugfix/test: " - for bug fixes
-  3. "add, change, fix, create" - initial commits for add, change, fix or create
+  2. "bugfix/test" - for bug fixes
+  3. "develop" - for development
+  Example: "feat/components/Navbar: add navbar component", "bugfix/button: fix button set up" - initial commits for add, change, fix or create
 
-4. git push origin feat/ui/button, bugfix/test
+4. git push origin feat/ui/button, bugfix/test, develop
 
 - I created two branch in Github, one of them "main" and another one "develop".
   You always push to develop branch and after I check the result I merge to main branch. We will deploy our project to vercel or similar, and we can see our results there!
