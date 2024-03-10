@@ -2,8 +2,6 @@
 
 Building a complex e-Commerce app in React with a team.
 
-Hello there! My name is Jakhongir, and you can check the link below: https://www.linkedin.com/in/jahongir-bektemirov-82621a246/
-
 I provided some rules down before I started.
 I would like you to read it 🙂!
 
