@@ -1,4 +1,4 @@
-# React App with team
+# Shinline App with team
 
 Building a complex e-Commerce app in React with a team.
 
