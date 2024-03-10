@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  myproject-prod:
+    image: mydockerhubusername/myproject:latest
+    ports:
+      - '80:80'
+# docker-compose -f docker-compose.prod.yml up -d
+# This will pull the Docker image for your project and run it as a container accessible at the IP address or domain name of your production server.

@@ -1,0 +1,26 @@
+name: Deploy to Development Environment
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Pull Docker image from Docker Hub
+        run: docker pull mydockerhubusername/myproject:latest
+
+      - name: Run Docker container for development
+        run: docker run -d -p 3000:3000 --name myproject-dev mydockerhubusername/myproject:latest

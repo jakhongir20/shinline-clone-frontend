@@ -1,0 +1,32 @@
+name: Deploy to Production Environment
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**'
+
+jobs:
+  deploy-prod:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Dockerize application
+        run: |
+          docker build -t myapp-prod .
+
+      - name: Deploy to Heroku (Production)
+        run: |
+          heroku login -i
+          heroku git:remote -a <heroku-app-name-prod>
+          heroku container:push web -a <heroku-app-name-prod>
+          heroku container:release web -a <heroku-app-name-prod>
