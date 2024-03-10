@@ -1,0 +1,34 @@
+name: Deploy to Development Environment
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Pull Docker image from Docker Hub
+        run: docker pull mydockerhubusername/myproject:latest
+
+      - name: Stop existing container (if any)
+        run: docker stop myproject-dev || true
+
+      - name: Remove existing container (if any)
+        run: docker rm myproject-dev || true
+
+      - name: Run Docker container for development
+        run: docker run -d -p 3000:3000 --name myproject-dev mydockerhubusername/myproject:latest

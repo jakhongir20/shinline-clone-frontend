@@ -1,0 +1,16 @@
+bash
+
+heroku config:set NODE_ENV=production
+heroku config:set API_KEY=your-api-key
+
+# Log in to Heroku
+heroku login -i
+
+# Create a new Heroku app
+heroku create <app-name>
+
+# Add Heroku as a remote repository
+heroku git:remote -a <app-name>
+
+# Push code to Heroku
+git push heroku main

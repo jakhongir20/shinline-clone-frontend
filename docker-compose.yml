@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  myproject-dev:
+    image: mydockerhubusername/myproject:latest
+    ports:
+      - '3000:3000'
+# docker-compose -f docker-compose.dev.yml up -d
+# This will pull the Docker image for your project and run it as a container accessible at http://localhost:3000.
