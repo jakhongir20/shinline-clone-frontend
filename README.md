@@ -4,7 +4,7 @@ Building a complex e-Commerce app in React with a team.
 
 Hello there! My name is Jakhongir, and you can check the link below: https://www.linkedin.com/in/jahongir-bektemirov-82621a246/
 
-I wrote some things down before I started.
+I provided some rules down before I started.
 I would like you to read it 🙂!
 
 We create an e-commerce app on React called "React Tire" or different(can be changed the name later). We use Tailwind CSS for UI/UX, and for the backend, we use fake API for now, of course, we will write API on NodeJS in the future (after suggesting frontend).
