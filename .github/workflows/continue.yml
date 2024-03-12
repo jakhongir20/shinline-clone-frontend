@@ -6,35 +6,44 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Cache dependencies
-        id: cache
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
-      - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: npm ci
+      # - name: Cache dependencies
+      #   id: cache
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: node_modules
+      #     key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+      # - name: Install dependencies
+      #   if: steps.cache.outputs.cache-hit != 'true'
+      #   run: npm ci
+
       - name: Lint code
-        run: echo "Linting..." # docker lint -t myapp-dev .
+        # run: echo "Linting..." # docker lint -t myapp-dev .
+        run: |
+          docker run --rm -v $PWD:/app my-linter-image lint-command
+          # Replace 'my-linter-image' with the name of your Docker image for linting
+          # Replace 'lint-command' with the actual linting command
   test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Cache dependencies
-        id: cache
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
-      - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: npm ci
+        # - name: Cache dependencies
+        #   id: cache
+        #   uses: actions/cache@v3
+        #   with:
+        #     path: node_modules
+        #     key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+        # - name: Install dependencies
+        #   if: steps.cache.outputs.cache-hit != 'true'
+        #   run: npm ci
       - name: Test code
         continue-on-error: true
-        id: run-tests
-        run: echo "Testing..." # run: docker test -t myapp-dev .
+        # id: run-tests
+        # run: echo "Testing..." # run: docker test -t myapp-dev .
+        run: |
+          docker run --rm -v $PWD:/app my-test-image test-command
+          # Replace 'my-test-image' with the name of your Docker image for testing
+          # Replace 'test-command' with the actual testing command
       - name: Upload test report
         uses: actions/upload-artifact@v3
         with:
